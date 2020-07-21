@@ -1,6 +1,7 @@
 void process(string line)//function that takes input froom file and stores pins in vectors to work on
 {
         net_name="";//reset variable containing net name
+        route_no++;
         layer_no.clear();//clear vectors containing positions of the pins
         x_pos.clear();
         y_pos.clear();
