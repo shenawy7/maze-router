@@ -5,6 +5,7 @@
 #include <queue>
 #include <climits>
 #include <stack>
+#include <iomanip>
 using namespace std;
 
 string net_name;
@@ -15,6 +16,7 @@ int n, y, x;
 vector<int> done_pins_z;
 vector<int> done_pins_y;
 vector<int> done_pins_x;
+int route_no=0;
 ofstream output("output.txt");
 
 int main()
@@ -59,7 +61,7 @@ int main()
         {
             for(int k=0; k<x; k++)
             {
-                cout<<grid[i][j][k]<<" ";
+                cout<<setw(3)<<grid[i][j][k];
             }
             cout<<endl;
         }
