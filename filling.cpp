@@ -1,6 +1,6 @@
 void filling(int*** grid, int*** cost_grid, int layer_no_1, int x_pos_1, int y_pos_1, int layer_no_2, int x_pos_2, int y_pos_2)//function that receives 2 pins and makes first step of lee's algorithm which is filling
 {
-    if(grid[layer_no_1-1][y_pos_1][x_pos_1])//if pin 1 location was used for previous routing then routing fails (program does not support rip-up and re-route)
+    if(grid[layer_no_1-1][y_pos_1][x_pos_1]>0)//if pin 1 location was used for previous routing then routing fails (program does not support rip-up and re-route)
     {
         bool ok=false;
         for(int k=0; k<done_pins_x.size(); k++)
@@ -16,7 +16,7 @@ void filling(int*** grid, int*** cost_grid, int layer_no_1, int x_pos_1, int y_p
             exit(1);
         }
     }
-    if(grid[layer_no_2-1][y_pos_2][x_pos_2])
+    if(grid[layer_no_2-1][y_pos_2][x_pos_2]>0)
     {
         bool ok=false;
         for(int k=0; k<done_pins_x.size(); k++)
@@ -65,7 +65,7 @@ void filling(int*** grid, int*** cost_grid, int layer_no_1, int x_pos_1, int y_p
         for(int k=0; k<4; k++)//to check legal adjacent cells as mentioned earlier
         {
             int row, col, layer;
-            if(curr_z-1%2==0)
+            if((curr_z-1)%2==0)
             {
                 layer=curr_z+z_neighbors[k];
                 col=curr_x+x_neighbors[k];
